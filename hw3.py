@@ -13,16 +13,16 @@ conn = psycopg2.connect(
 @hw3.route('/')
 def main():
     conn = psycopg2.connect(
-        host="db-hw3.co9ywatzeczd.us-east-2.rds.amazonaws.com",
-        database="postgres",
-        user="postgres",
-        password="sickntired")
-        cur = conn.cursor()
-        cur.execute('SELECT VERSION();')
-        stringA = cur.fetchone()
-        cur.close()
-        conn.close()
-        return render_template('hw3.html', data = stringA)
+    host="db-hw3.co9ywatzeczd.us-east-2.rds.amazonaws.com",
+    database="postgres",
+    user="postgres",
+    password="sickntired")
+    cur = conn.cursor()
+    cur.execute('SELECT VERSION();')
+    stringA = cur.fetchone()
+    cur.close()
+    conn.close()
+    return render_template('hw3.html', data = stringA)
 
 if(__name__ == "__main__"):
     hw3.run()
