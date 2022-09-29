@@ -1,4 +1,4 @@
-from hw3 import hw3
+from hw3 import app
 
 if __name__ == "__main__":
-        hw3.run()
+        app.run()
