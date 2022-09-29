@@ -4,19 +4,14 @@ import os
 import psycopg2
 
 app = Flask(__name__)
-conn = psycopg2.connect(
-        host="db-hw3.co9ywatzeczd.us-east-2.rds.amazonaws.com",
-        database="postgres",
-        user="postgres",
-        password="sickntired")
 
 @app.route('/')
 def main():
     conn = psycopg2.connect(
     host="db-hw3.co9ywatzeczd.us-east-2.rds.amazonaws.com",
     database="postgres",
-    user="postgres",
-    password="sickntired")
+    user=os.environ['DB_USERNAME'],
+    password=os.environ['DB_PASSWORD'])
     cur = conn.cursor()
     cur.execute('SELECT VERSION();')
     stringA = cur.fetchone()
